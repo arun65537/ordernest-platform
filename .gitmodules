@@ -1,0 +1,18 @@
+[submodule "ordernest-auth-service"]
+	path = ordernest-auth-service
+	url = https://github.com/arunsingh8775/auth-service.git
+[submodule "ordernest-inventory-service"]
+	path = ordernest-inventory-service
+	url = https://github.com/arunsingh8775/ordernest-inventory-service.git
+[submodule "ordernest-order-service"]
+	path = ordernest-order-service
+	url = https://github.com/arunsingh8775/ordernest-order-service.git
+[submodule "ordernest-payment-service"]
+	path = ordernest-payment-service
+	url = https://github.com/arunsingh8775/ordernest-payment-service.git
+[submodule "ordernest-shipment-service"]
+	path = ordernest-shipment-service
+	url = https://github.com/arunsingh8775/ordernest-shipment-service.git
+[submodule "ordernest-web"]
+	path = ordernest-web
+	url = https://github.com/arunsingh8775/ordernest-web.git
