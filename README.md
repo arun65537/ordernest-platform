@@ -1,75 +1,48 @@
 # OrderNest Platform
 
 OrderNest is a microservices-based e-commerce platform.  
-This repository is the parent repository that links all service repositories using Git submodules.
+This repository is the parent workspace that links all services through Git submodules.
 
-Homepage: https://ordernest-web.onrender.com
+Live App: [https://ordernest-web.onrender.com](https://ordernest-web.onrender.com)
 
-## Repositories in This Platform
+## Stack
 
-- `ordernest-auth-service` - JWT authentication and user identity
-- `ordernest-inventory-service` - product catalog and stock management
-- `ordernest-order-service` - order creation and order lifecycle
-- `ordernest-payment-service` - payment processing (Razorpay) and payment events
-- `ordernest-shipment-service` - shipment status updates and shipment events
-- `ordernest-web` - React frontend (Vite + Tailwind)
+- Backend: Java 17, Spring Boot, Gradle
+- Frontend: React, Vite, Tailwind CSS
+- Database: PostgreSQL
+- Messaging: Kafka
+- Payments: Razorpay (test mode integration)
 
-## Architecture Overview
+## Services
 
-- Frontend (`ordernest-web`) calls auth, inventory, and order APIs.
-- Backend services are Spring Boot services (Java 17, Gradle).
-- PostgreSQL is used for persistence in core services.
-- Kafka is used for event-driven communication (payment/shipment related events).
+| Service | Responsibility | Docs |
+| --- | --- | --- |
+| `ordernest-auth-service` | JWT auth, registration, login, user identity | [README](./ordernest-auth-service/README.md) |
+| `ordernest-inventory-service` | Product catalog, stock, inventory APIs | [README](./ordernest-inventory-service/README.md) |
+| `ordernest-order-service` | Order creation and order lifecycle | [README](./ordernest-order-service/README.md) |
+| `ordernest-payment-service` | Razorpay order/payment verification and payment events | [README](./ordernest-payment-service/README.md) |
+| `ordernest-shipment-service` | Shipment status events | [README](./ordernest-shipment-service/README.md) |
+| `ordernest-web` | Customer-facing React frontend | [README](./ordernest-web/README.md) |
 
-## Why This Parent Repo Uses Submodules
+## Quick Start
 
-This repo gives one top-level project for coordination while preserving:
-
-- independent history per service
-- independent deployments per service
-- clear version pinning across services for stable releases
-
-## Clone and Initialize
-
-Clone with submodules:
+Clone with all submodules:
 
 ```bash
-git clone --recurse-submodules https://github.com/arunsingh8775/ordernest-platform.git
+git clone --recurse-submodules https://github.com/arun65537/ordernest-platform.git
+cd ordernest-platform
 ```
 
-If already cloned without submodules:
+If you already cloned without submodules:
 
 ```bash
 git submodule update --init --recursive
 ```
 
-## Pull Latest Changes
+## Run Locally
 
-To pull parent repo updates and refresh submodules:
-
-```bash
-git pull
-git submodule update --init --recursive
-```
-
-To move each submodule to the latest commit on its default branch:
-
-```bash
-git submodule update --remote --recursive
-```
-
-Then commit updated submodule pointers in this parent repo:
-
-```bash
-git add .
-git commit -m "Update submodule pointers"
-git push
-```
-
-## Local Development (Suggested Flow)
-
-1. Start required infrastructure (PostgreSQL, Kafka) for backend services.
-2. Start backend services one by one from their directories.
+1. Start required infrastructure (PostgreSQL and Kafka).
+2. Start backend services from their respective folders.
 3. Start frontend:
 
 ```bash
@@ -78,11 +51,25 @@ npm install
 npm run dev
 ```
 
-Each service has its own detailed setup and environment variables in its own `README.md`.
+## Submodule Workflow
 
-## Working in a Specific Service
+Update parent + pinned service versions:
 
-Example (`ordernest-order-service`):
+```bash
+git pull
+git submodule update --init --recursive
+```
+
+Pull latest commits from service default branches:
+
+```bash
+git submodule update --remote --recursive
+git add .
+git commit -m "Update submodule pointers"
+git push
+```
+
+Make changes in one service:
 
 ```bash
 cd ordernest-order-service
@@ -93,7 +80,7 @@ git commit -m "Your change"
 git push
 ```
 
-After that, return to parent repo and update the submodule pointer:
+Then update parent pointer:
 
 ```bash
 cd ..
@@ -102,11 +89,8 @@ git commit -m "Bump order-service submodule"
 git push
 ```
 
-## Service Docs
+## Why This Repo Exists
 
-- [Auth Service](./ordernest-auth-service/README.md)
-- [Inventory Service](./ordernest-inventory-service/README.md)
-- [Order Service](./ordernest-order-service/README.md)
-- [Payment Service](./ordernest-payment-service/README.md)
-- [Shipment Service](./ordernest-shipment-service/README.md)
-- [Web Frontend](./ordernest-web/README.md)
+- Single top-level workspace for all services
+- Independent history and deployment per service
+- Stable cross-service version pinning for releases
