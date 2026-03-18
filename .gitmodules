@@ -1,6 +1,6 @@
-[submodule "ordernest-auth-service"]
-	path = ordernest-auth-service
-	url = https://github.com/arunsingh8775/auth-service.git
+[submodule "sso-service"]
+	path = sso-service
+	url = https://github.com/arun65537/sso-service.git
 [submodule "ordernest-inventory-service"]
 	path = ordernest-inventory-service
 	url = https://github.com/arunsingh8775/ordernest-inventory-service.git
