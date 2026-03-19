@@ -10,9 +10,6 @@
 [submodule "ordernest-payment-service"]
 	path = ordernest-payment-service
 	url = https://github.com/arunsingh8775/ordernest-payment-service.git
-[submodule "ordernest-shipment-service"]
-	path = ordernest-shipment-service
-	url = https://github.com/arunsingh8775/ordernest-shipment-service.git
 [submodule "ordernest-web"]
 	path = ordernest-web
 	url = https://github.com/arunsingh8775/ordernest-web.git
