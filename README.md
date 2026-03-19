@@ -17,7 +17,7 @@ Live App: [https://ordernest-web.onrender.com](https://ordernest-web.onrender.co
 
 | Service | Responsibility | Docs |
 | --- | --- | --- |
-| `ordernest-auth-service` | JWT auth, registration, login, user identity | [README](./ordernest-auth-service/README.md) |
+| `sso-service` | JWT auth, registration, login, user identity | [README](./ordernest-auth-service/README.md) |
 | `ordernest-inventory-service` | Product catalog, stock, inventory APIs | [README](./ordernest-inventory-service/README.md) |
 | `ordernest-order-service` | Order creation, lifecycle, and shipment status workflow | [README](./ordernest-order-service/README.md) |
 | `ordernest-payment-service` | Razorpay order/payment verification and payment events | [README](./ordernest-payment-service/README.md) |
